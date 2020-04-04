@@ -274,7 +274,7 @@ public class HomePageUI extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     
-    static JFrame jf1 = new CouplingInterface();
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -299,7 +299,7 @@ public class HomePageUI extends javax.swing.JFrame {
         }
         //</editor-fold>
         
-        jf1.setVisible(true);
+    
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
