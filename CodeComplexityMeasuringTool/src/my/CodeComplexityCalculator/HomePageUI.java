@@ -59,6 +59,7 @@ public class HomePageUI extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jButtonImportFile1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 1, 36)); // NOI18N
         jLabel1.setText("Code Complexity Measuring");
@@ -201,15 +202,28 @@ public class HomePageUI extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Size", jPanel6);
 
+        jButtonImportFile1.setText("Import File");
+        jButtonImportFile1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonImportFile1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonImportFile1)
+                .addContainerGap(533, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 377, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jButtonImportFile1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(313, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Inheritance", jPanel4);
@@ -302,6 +316,10 @@ public class HomePageUI extends javax.swing.JFrame {
         jTable1.setModel(new DefaultTableModel(null,new String []{"LN","Statement"}));
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButtonImportFile1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImportFile1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonImportFile1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -349,6 +367,7 @@ public class HomePageUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonImportFile;
+    private javax.swing.JButton jButtonImportFile1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
