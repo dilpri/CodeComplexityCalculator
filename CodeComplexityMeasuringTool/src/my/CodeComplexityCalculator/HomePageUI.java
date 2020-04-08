@@ -60,6 +60,7 @@ public class HomePageUI extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jButtonImportFile1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semilight", 1, 36)); // NOI18N
         jLabel1.setText("Code Complexity Measuring");
@@ -209,6 +210,8 @@ public class HomePageUI extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setText("jButton4");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -217,13 +220,19 @@ public class HomePageUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jButtonImportFile1)
                 .addContainerGap(533, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton4)
+                .addGap(122, 122, 122))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jButtonImportFile1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(313, Short.MAX_VALUE))
+                .addGap(86, 86, 86)
+                .addComponent(jButton4)
+                .addContainerGap(204, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Inheritance", jPanel4);
@@ -279,7 +288,7 @@ public class HomePageUI extends javax.swing.JFrame {
        // path.setText(filename);
     
         //String filePath = "C:\\Users\\Oshadee\\Desktop\\table.txt";
-       String filePath = "C:\\Users\\Oshadee\\Desktop\\table2.txt";
+       String filePath = "C:\\Users\\Imali\\Desktop\\table2.txt";
        File file = new File(filePath);
         
         try {
@@ -366,6 +375,7 @@ public class HomePageUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButtonImportFile;
     private javax.swing.JButton jButtonImportFile1;
     private javax.swing.JLabel jLabel1;
