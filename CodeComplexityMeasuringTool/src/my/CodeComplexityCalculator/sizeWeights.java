@@ -29,11 +29,20 @@ public class sizeWeights extends javax.swing.JFrame {
 
         pnl2 = new javax.swing.JPanel();
         lbl2 = new javax.swing.JLabel();
+        btn4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Code Complexity Calculator");
 
         lbl2.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
         lbl2.setText("Weights related tothe size factor");
+
+        btn4.setText("OK");
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl2Layout = new javax.swing.GroupLayout(pnl2);
         pnl2.setLayout(pnl2Layout);
@@ -42,14 +51,20 @@ public class sizeWeights extends javax.swing.JFrame {
             .addGroup(pnl2Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(lbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(606, Short.MAX_VALUE))
+                .addContainerGap(344, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96))
         );
         pnl2Layout.setVerticalGroup(
             pnl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl2Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(lbl2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(336, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
+                .addComponent(btn4)
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -57,17 +72,23 @@ public class sizeWeights extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(57, Short.MAX_VALUE)
                 .addComponent(pnl2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnl2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        size s=new size();
+        s.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -105,6 +126,7 @@ public class sizeWeights extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn4;
     private javax.swing.JLabel lbl2;
     private javax.swing.JPanel pnl2;
     // End of variables declaration//GEN-END:variables
