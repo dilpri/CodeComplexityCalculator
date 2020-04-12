@@ -9,12 +9,12 @@ package my.CodeComplexityCalculator;
  *
  * @author Pancha27
  */
-public class variable extends javax.swing.JFrame {
+public class method extends javax.swing.JFrame {
 
     /**
-     * Creates new form variable
+     * Creates new form method
      */
-    public variable() {
+    public method() {
         initComponents();
     }
 
@@ -27,22 +27,19 @@ public class variable extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnl3 = new javax.swing.JPanel();
-        lbl3 = new javax.swing.JLabel();
+        lbl5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tb2 = new javax.swing.JTable();
-        bt2 = new javax.swing.JButton();
+        tb3 = new javax.swing.JTable();
+        bt3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Code Complexity Calculator");
 
-        lbl3.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
-        lbl3.setText("complexity of a Program Statement due to Variable");
+        lbl5.setFont(new java.awt.Font("Sitka Small", 1, 14)); // NOI18N
+        lbl5.setText("complexity of a Program Statement due to Mrthod");
 
-        tb2.setModel(new javax.swing.table.DefaultTableModel(
+        tb3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -59,7 +56,7 @@ public class variable extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "LineNO", "Statement", "Wvs", "Wpdtv", "Npdtv", "Wcdtv", "Ncdtv", "cv"
+                "LineNO", "Statement", "Wmrt", "Wpdtp", "Npdtp", "Wcdtp", "Ncdtp", "Cm"
             }
         ) {
             Class[] types = new Class [] {
@@ -70,67 +67,51 @@ public class variable extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tb2);
-        if (tb2.getColumnModel().getColumnCount() > 0) {
-            tb2.getColumnModel().getColumn(1).setMinWidth(100);
-            tb2.getColumnModel().getColumn(1).setMaxWidth(200);
-        }
+        jScrollPane1.setViewportView(tb3);
 
-        bt2.setText("Change the weight");
-        bt2.addActionListener(new java.awt.event.ActionListener() {
+        bt3.setText("Change the weight");
+        bt3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt2ActionPerformed(evt);
+                bt3ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout pnl3Layout = new javax.swing.GroupLayout(pnl3);
-        pnl3.setLayout(pnl3Layout);
-        pnl3Layout.setHorizontalGroup(
-            pnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl3Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(pnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(116, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bt2)
-                .addGap(66, 66, 66))
-        );
-        pnl3Layout.setVerticalGroup(
-            pnl3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl3Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(lbl3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(bt2)
-                .addContainerGap(47, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 522, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl5, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(200, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bt3)
+                .addGap(134, 134, 134))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnl3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(lbl5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(bt3)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt2ActionPerformed
+    private void bt3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt3ActionPerformed
 
-        variableWeight cw = new variableWeight();
+       methodWeight cw = new methodWeight();
         cw.setVisible(true);
         this.dispose();
-
-    }//GEN-LAST:event_bt2ActionPerformed
+    }//GEN-LAST:event_bt3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,29 +130,32 @@ public class variable extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(variable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(method.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(variable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(method.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(variable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(method.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(variable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(method.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new variable().setVisible(true);
+                new method().setVisible(true);
             }
         });
     }
 
+    void setvisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bt2;
+    private javax.swing.JButton bt3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbl3;
-    private javax.swing.JPanel pnl3;
-    private javax.swing.JTable tb2;
+    private javax.swing.JLabel lbl5;
+    private javax.swing.JTable tb3;
     // End of variables declaration//GEN-END:variables
 }
