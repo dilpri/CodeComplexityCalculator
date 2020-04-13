@@ -12,6 +12,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -57,6 +59,8 @@ public class ControlStructures extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton10 = new javax.swing.JButton();
@@ -122,12 +126,24 @@ public class ControlStructures extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setText("Complexity due to 'switch' and 'case'");
+        jButton8.setText("Complexity due to 'switch' statement");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setBackground(new java.awt.Color(51, 153, 255));
         jButton9.setText("Calculate Total Code Complexity ");
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 204));
+
+        jButton4.setText("Complexity due to 'case' statement");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -136,6 +152,7 @@ public class ControlStructures extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -146,7 +163,8 @@ public class ControlStructures extends javax.swing.JFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE))
                 .addGap(27, 27, 27))
         );
         jPanel2Layout.setVerticalGroup(
@@ -168,7 +186,11 @@ public class ControlStructures extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(94, 94, 94)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(53, Short.MAX_VALUE))
         );
@@ -260,7 +282,7 @@ public class ControlStructures extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -331,6 +353,7 @@ public class ControlStructures extends javax.swing.JFrame {
         jLabel6.setText("");
         jLabel7.setText("");
         jLabel8.setText("");
+        jLabel4.setText("");
         jTextArea1.setText("");
         jTextField1.setText("");
 
@@ -371,9 +394,9 @@ public class ControlStructures extends javax.swing.JFrame {
             CountConditionsCs getIf = new CountConditionsCs(codeFinal2, "if", 2);
             countif2 = countif2 + getIf.getCount();
 
-            System.out.println("No. of if Conditional Control Structures with logical and/or bitwise operators: " + countif2);
+            System.out.println("No. of if Conditional Control Structures : " + countif2);
 
-            jLabel1.setText("Wtcs: " + countif2);
+            jLabel1.setText("Wtcs * NC : " + countif2);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -396,9 +419,9 @@ public class ControlStructures extends javax.swing.JFrame {
             CountConditionsCs getWhile = new CountConditionsCs(codeFinal3, "while", 3);
             countwhile3 = countwhile3 + getWhile.getCount();
 
-            System.out.println("No. of while Iterative Control Structures with logical and/or bitwise operators: " + countwhile3);
+            System.out.println("No. of while Iterative Control Structures : " + countwhile3);
 
-            jLabel8.setText("Wtcs: " + countwhile3);
+            jLabel8.setText("Wtcs * NC : " + countwhile3);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -421,15 +444,89 @@ public class ControlStructures extends javax.swing.JFrame {
             CountConditionsCs getWhile = new CountConditionsCs(codeFinal3, "for", 3);
             countwhile3 = countwhile3 + getWhile.getCount();
 
-            System.out.println("No. of while Iterative Control Structures with logical and/or bitwise operators: " + countwhile3);
+            System.out.println("No. of while Iterative Control Structures : " + countwhile3);
 
-            jLabel6.setText("Wtcs: " + countwhile3);
+            jLabel6.setText("Wtcs * NC : " + countwhile3);
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // complexity due to switch
+        String fullCode3 = jTextArea1.getText(); //get the full code from text field for complexity calculation          
+
+        if (fullCode3.isEmpty()) {
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
+        } else {
+            int countwhile3 = 0;
+
+            String codeFirst3 = fullCode3.replaceAll("\".*\"", ""); //remove double quotes from the code
+            String codeNext3 = codeFirst3.replaceAll("\\'.*?\\'", ""); //remove single quotes from the code
+            String codeFinal3 = codeNext3.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", ""); //remove all single and multiple comments
+
+            //System.out.println(codeFinal);
+            //count while conditions
+            CountConditionsCs getWhile = new CountConditionsCs(codeFinal3, "switch", 2);
+            countwhile3 = countwhile3 + getWhile.getCount();
+
+            System.out.println("No. of while Iterative Control Structures : " + countwhile3);
+
+            jLabel7.setText("Wtcs * NC : " + countwhile3);
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // due to case statement
+         String fullCode5 = jTextArea1.getText(); //get the full code from text field for complexity calculation        
+
+        if (fullCode5.isEmpty()) {
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
+        } else {
+            int countswitch5 = 0;
+
+            String codeFirst5 = fullCode5.replaceAll("\".*\"", ""); //remove double quotes from the code
+            String codeNext5 = codeFirst5.replaceAll("\\'.*?\\'", ""); //remove single quotes from the code
+            String codeFinal5 = codeNext5.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", ""); //remove all single and multiple comments
+
+            //System.out.println(codeFinal);
+            //count case blocks in switch
+            String[] wordsSwitch = codeFinal5.split("switch"); //split from switch
+
+            //get rest words one by one
+            for (int i = 0; i < wordsSwitch.length; i++) {
+
+                wordsSwitch[i] = wordsSwitch[i] + "zzz"; //add dummy value to get rid from IndexOutOfBounds exception
+
+                //System.out.println(wordsSwitch[i]);
+                //get switch statements which only have brackets next to it
+                if (wordsSwitch[i].charAt(0) == '(' || wordsSwitch[i].charAt(1) == '(') {
+
+                    //get content inside curly brackets using a stack
+                    CheckInsideBracketsCS brackets = new CheckInsideBracketsCS(wordsSwitch[i]);
+                    String getSwitch = brackets.getCurly();
+
+                    //System.out.println(getSwitch + "SWITCH");
+                    //count case blocks
+                    Pattern pSwitch = Pattern.compile("case");
+                    Matcher mSwitch = pSwitch.matcher(getSwitch);
+
+                    while (mSwitch.find()) {
+                        ++countswitch5; //increment count
+                    }
+
+                }
+
+                System.out.println("No of swith cases : " + countswitch5);
+            }
+
+            jLabel4.setText("Wtcs * NC : " + countswitch5);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -474,6 +571,7 @@ public class ControlStructures extends javax.swing.JFrame {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -481,6 +579,7 @@ public class ControlStructures extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
