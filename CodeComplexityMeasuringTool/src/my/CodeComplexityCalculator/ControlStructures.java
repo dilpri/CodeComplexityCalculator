@@ -188,6 +188,11 @@ public class ControlStructures extends javax.swing.JFrame {
 
         jButton10.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jButton10.setText("Load Data to a Table Format");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton11.setText("Change allocated weights ");
@@ -334,7 +339,7 @@ public class ControlStructures extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{},
                 new String[]{
-                    "Line #", "Code", "Ctc"
+                    "Line #", "Code", "Ccs"
                 }
         ) {
             Class[] types = new Class[]{
@@ -368,7 +373,7 @@ public class ControlStructures extends javax.swing.JFrame {
 
             System.out.println("No. of if Conditional Control Structures with logical and/or bitwise operators: " + countif2);
 
-            jLabel1.setText("FOUND: " + countif2);
+            jLabel1.setText("Wtcs: " + countif2);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -393,7 +398,7 @@ public class ControlStructures extends javax.swing.JFrame {
 
             System.out.println("No. of while Iterative Control Structures with logical and/or bitwise operators: " + countwhile3);
 
-            jLabel8.setText("FOUND: " + countwhile3);
+            jLabel8.setText("Wtcs: " + countwhile3);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -413,14 +418,18 @@ public class ControlStructures extends javax.swing.JFrame {
 
             //System.out.println(codeFinal);
             //count while conditions
-            CountConditionsCs getWhile = new CountConditionsCs(codeFinal3, "while", 2);
+            CountConditionsCs getWhile = new CountConditionsCs(codeFinal3, "for", 3);
             countwhile3 = countwhile3 + getWhile.getCount();
 
             System.out.println("No. of while Iterative Control Structures with logical and/or bitwise operators: " + countwhile3);
 
-            jLabel6.setText("FOUND: " + countwhile3);
+            jLabel6.setText("Wtcs: " + countwhile3);
         }
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     /**
      * @param args the command line arguments
