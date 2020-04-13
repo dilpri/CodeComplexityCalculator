@@ -109,8 +109,18 @@ public class ControlStructures extends javax.swing.JFrame {
         });
 
         jButton5.setText("Complexity due to 'while'  or 'do-while' loop");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Complexity due to 'for' loop");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setText("Complexity due to 'switch' and 'case'");
 
@@ -361,6 +371,56 @@ public class ControlStructures extends javax.swing.JFrame {
             jLabel1.setText("FOUND: " + countif2);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // complexity due to while or do-while
+        String fullCode3 = jTextArea1.getText(); //get the full code from text field for complexity calculation          
+
+        if (fullCode3.isEmpty()) {
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
+        } else {
+            int countwhile3 = 0;
+
+            String codeFirst3 = fullCode3.replaceAll("\".*\"", ""); //remove double quotes from the code
+            String codeNext3 = codeFirst3.replaceAll("\\'.*?\\'", ""); //remove single quotes from the code
+            String codeFinal3 = codeNext3.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", ""); //remove all single and multiple comments
+
+            //System.out.println(codeFinal);
+            //count while conditions
+            CountConditionsCs getWhile = new CountConditionsCs(codeFinal3, "while", 3);
+            countwhile3 = countwhile3 + getWhile.getCount();
+
+            System.out.println("No. of while Iterative Control Structures with logical and/or bitwise operators: " + countwhile3);
+
+            jLabel8.setText("FOUND: " + countwhile3);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // complexity due to for 
+        String fullCode3 = jTextArea1.getText(); //get the full code from text field for complexity calculation          
+
+        if (fullCode3.isEmpty()) {
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
+        } else {
+            int countwhile3 = 0;
+
+            String codeFirst3 = fullCode3.replaceAll("\".*\"", ""); //remove double quotes from the code
+            String codeNext3 = codeFirst3.replaceAll("\\'.*?\\'", ""); //remove single quotes from the code
+            String codeFinal3 = codeNext3.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", ""); //remove all single and multiple comments
+
+            //System.out.println(codeFinal);
+            //count while conditions
+            CountConditionsCs getWhile = new CountConditionsCs(codeFinal3, "while", 2);
+            countwhile3 = countwhile3 + getWhile.getCount();
+
+            System.out.println("No. of while Iterative Control Structures with logical and/or bitwise operators: " + countwhile3);
+
+            jLabel6.setText("FOUND: " + countwhile3);
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
