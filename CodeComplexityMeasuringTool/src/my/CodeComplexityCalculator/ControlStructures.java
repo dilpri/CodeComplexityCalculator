@@ -135,6 +135,11 @@ public class ControlStructures extends javax.swing.JFrame {
 
         jButton9.setBackground(new java.awt.Color(51, 153, 255));
         jButton9.setText("Calculate Total Code Complexity ");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 204));
 
@@ -203,7 +208,7 @@ public class ControlStructures extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Line No", "Code Statement", "Ccs", "Title 4"
             }
         ));
         jScrollPane2.setViewportView(jTable1);
@@ -362,7 +367,7 @@ public class ControlStructures extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{},
                 new String[]{
-                    "Line #", "Code", "Ccs"
+                    "Line No", "Code Statement", "Ccs"
                 }
         ) {
             Class[] types = new Class[]{
@@ -527,6 +532,79 @@ public class ControlStructures extends javax.swing.JFrame {
             jLabel4.setText("Wtcs * NC : " + countswitch5);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // calculate total complexity due to control structures
+        String fullCode = jTextArea1.getText(); //get the full code from text field for complexity calculation
+
+        if (fullCode.isEmpty()) {
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
+        } else {
+
+            int count = 0;   //variable to get the total complexity        
+
+            String codeFirst = fullCode.replaceAll("\".*\"", ""); //remove double quotes from the code
+            String codeNext = codeFirst.replaceAll("\\'.*?\\'", ""); //remove single quotes from the code
+            String codeFinal = codeNext.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", ""); //remove all single and multiple comments
+
+            //System.out.println(codeFinal);
+//        ArrayList<SingleLine> statementList = new ArrayList<SingleLine>();
+            //      for (SingleLine singleLine : statementList) {
+            //count if conditions, logical and bitwise operators
+            CountConditionsCs getIf = new CountConditionsCs(codeFinal, "if", 2);
+            count = count + getIf.getCount();
+
+            //System.out.println("No. of if Conditional Control Structures with logical and/or bitwise operators: " + countif);
+            //count while conditions
+            CountConditionsCs getWhile = new CountConditionsCs(codeFinal, "while", 3);
+            count = count + getWhile.getCount();
+
+            //System.out.println("No. of while Iterative Control Structures with logical and/or bitwise operators: " + countwhile);
+            //count for conditions
+            CountConditionsCs getFor = new CountConditionsCs(codeFinal, "for", 3);
+            count = count + getFor.getCountForCatch();
+
+            //System.out.println("No. of for Iterative Control Structures with logical and/or bitwise operators: " + countfor);
+            //count catch conditions
+            CountConditionsCs getCatch = new CountConditionsCs(codeFinal, "switch", 2);
+            count = count + getCatch.getCountForCatch();
+
+            //System.out.println("No. of catch statements: " + countcatch);
+            //count case blocks in switch
+            String[] wordsSwitch = codeFinal.split("switch"); //split from switch
+
+            //get rest words one by one
+            for (int i = 0; i < wordsSwitch.length; i++) {
+
+                wordsSwitch[i] = wordsSwitch[i] + "zzz"; //add dummy value to get rid from IndexOutOfBounds exception
+
+                System.out.println(wordsSwitch[i]);
+                //get switch statements which only have brackets next to it
+                if (wordsSwitch[i].charAt(0) == '(' || wordsSwitch[i].charAt(1) == '(') {
+
+                    //get content inside curly brackets using a stack
+                    CheckInsideBracketsCS brackets = new CheckInsideBracketsCS(wordsSwitch[i]);
+                    String getSwitch = brackets.getCurly();
+
+                    //System.out.println(getSwitch + "SWITCH");
+                    //count case blocks
+                    Pattern pSwitch = Pattern.compile("case");
+                    Matcher mSwitch = pSwitch.matcher(getSwitch);
+
+                    while (mSwitch.find()) {
+                        ++count; //increment count
+                    }
+
+                }
+
+                //System.out.println("No of swith cases : " + countswitch);
+            }
+
+            //System.out.print(statementList);
+            JOptionPane.showMessageDialog(null, "Css : " + count);
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments
