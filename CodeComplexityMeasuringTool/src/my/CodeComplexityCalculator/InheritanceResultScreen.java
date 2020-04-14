@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Imali
  */
 
-  //hri ne? hari dan weight ekata moko karanne? inn hthnkn
+  
 
 public class InheritanceResultScreen extends javax.swing.JFrame {
 
