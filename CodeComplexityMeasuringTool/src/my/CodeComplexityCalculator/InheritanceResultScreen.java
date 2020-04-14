@@ -13,26 +13,60 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Imali
  */
+
+  //hri ne? hari dan weight ekata moko karanne? inn hthnkn
+
 public class InheritanceResultScreen extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InheritanceResultScreen
-     */
-    ArrayList<ClassInfo> tableData;
+    ArrayList<Integer> ClassesCount = new ArrayList<Integer>();
+     ArrayList<Integer> Ti = new ArrayList<Integer>();
+      ArrayList<Integer> Ci = new ArrayList<Integer>();
+      
+      ArrayList<String> classes = new ArrayList<String>();
+     ArrayList<Integer> DirectInheritence = new ArrayList<Integer>();
+      ArrayList<Integer> IndirectInheritence = new ArrayList<Integer>();
+      
+      int index1 , index2 , index3 , index4 , index5;
 
-    public InheritanceResultScreen(ArrayList<ClassInfo> result) {
-        initComponents();
-        this.tableData = result;
-        System.out.println("Output :" + result.get(0).name);
-
-        DefaultTableModel model = (DefaultTableModel) resultTable.getModel();
-
-        for (int x = 0; x < result.size(); x++) {
-            ClassInfo obj = result.get(x);
-            model.addRow(new Object[]{x + 1, obj.name, obj.numDirectInheritance, obj.numIndirectInheritance, obj.total, obj.total});
-
+    public InheritanceResultScreen( int index1 , int index2 , int index3 , int index4 , int index5 , ArrayList<String> classes , ArrayList<Integer> directInheritence ,  ArrayList<Integer> IndirectInheritence) {
+          initComponents();
+          this.classes = classes ;
+          this.DirectInheritence = directInheritence;
+          this.IndirectInheritence = IndirectInheritence;
+          
+        DefaultTableModel table = (DefaultTableModel) resultTable.getModel();
+         
+         for( int x = 0 ; x < classes.size() ; x++) {
+             ClassesCount.add(x+1);
+         }
+         table.addColumn("Count" ,ClassesCount.toArray());
+         table.addColumn("Class" ,classes.toArray());
+         table.addColumn("DirectInheritence" ,directInheritence.toArray());
+         table.addColumn("IndirectInheritence" ,IndirectInheritence.toArray());
+         
+         for(int y = 0 ; y < classes.size() ; y++) {
+            Ti.add(directInheritence.get(y) + IndirectInheritence.get(y));
         }
-
+         table.addColumn("Ti" ,Ti.toArray());
+        for(int h = 0 ; h < classes.size() ; h++) {
+           if(Ti.get(h) == 0) {
+               Ci.add(Ti.get(h) * index1);
+           }
+            if(Ti.get(h) == 1) {
+               Ci.add(Ti.get(h) * index2);
+           }
+             if(Ti.get(h) == 2) {
+               Ci.add(Ti.get(h) * index3);
+           }
+              if(Ti.get(h) == 3) {
+               Ci.add(Ti.get(h) * index4);
+           }
+            if(Ti.get(h) >= 4) {
+               Ci.add(Ti.get(h) *index5);
+           }
+        }
+         table.addColumn("Ci" ,Ti.toArray());
+         
     }
 
     /**
@@ -53,23 +87,16 @@ public class InheritanceResultScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("InheritedResultScreen"); // NOI18N
+        setPreferredSize(null);
 
         resultTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Count", "Class name", "Num of direct inheritances", "Num of indirect inheritance", "Total inheritances", "Ci"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-        });
+        ));
         jScrollPane1.setViewportView(resultTable);
 
         jButton1.setText("Back");
@@ -142,45 +169,14 @@ public class InheritanceResultScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       InheritanceWeights nextScreen = new InheritanceWeights(this.tableData);
-        nextScreen.setVisible(true);
 
-        this.dispose();//to close the current jframe         // TODO add your handling code here:
+        InheritanceWeights iw = new InheritanceWeights(classes , DirectInheritence , IndirectInheritence );
+        iw.setVisible(true);
+        this.dispose();
+      
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InheritanceResultScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InheritanceResultScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InheritanceResultScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InheritanceResultScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
