@@ -7,10 +7,14 @@ package my.CodeComplexityCalculator;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
@@ -21,6 +25,17 @@ import javax.swing.table.DefaultTableModel;
  */
 public class MainScreen extends javax.swing.JFrame {
 
+    //Declare varriables
+    
+    String choosetxt;
+    int cout = 0;
+    int countIndex = 0;
+    
+    ArrayList<String> classes = new ArrayList<String>();
+    ArrayList<Integer> directInheritence = new ArrayList<Integer>();
+    ArrayList<Integer> IndirectInheritence = new ArrayList<Integer>();
+   
+    ArrayList<String> all = new ArrayList<String>();
     /**
      * Creates new form MainScreen
      */
@@ -202,91 +217,122 @@ public class MainScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String filePath = "C:\\Users\\Imali\\Desktop\\table2.txt";
-        File file = new File(filePath);
-
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(file)); 
-            String fullText = "";
-
-            try {
-                StringBuilder sb = new StringBuilder();
-                String line = br.readLine();
-
-                while (line != null) {
-                    sb.append(line);
-                    sb.append("\n");
-                    line = br.readLine();
-                }
-                fullText = sb.toString();
-            } finally {
-                br.close();
+        
+        userInputTxtBox.setText("");
+        JFileChooser chooser = new JFileChooser();
+        chooser.showOpenDialog(null);
+        File f = chooser.getSelectedFile();
+        choosetxt = f.getAbsolutePath();
+        
+        System.out.println(choosetxt);
+        try{
+            Scanner scanner = new Scanner(new File(choosetxt));
+            //Get the Line count of lines in the code
+            
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                userInputTxtBox.setText(userInputTxtBox.getText() + "\n" + line  );
+                cout++;
+	
+                String[] words = line.split(" " ) ;
+              
+                printFunction(words);
+                
             }
-
-            userInputTxtBox.setText(fullText);
-
+            scanner.close();
+             fillArray( classes.size());
+            for(int count = 0 ; count < classes.size() ; count++){
+                getAmount(classes.get(count)); //serachInderectInheritence(classes.get(count));
+             }
+             for(int countC = 0 ; countC < classes.size() ; countC++){
+                if ( IndirectInheritence.get(countC) != 0){
+                     IndirectInheritence.set(countC , IndirectInheritence.get(countC) -1 );
+                }
+                    
+             }
+             //serachInderectInheritence(classes.get(1));
+            System.out.println(classes);
+            System.out.println(directInheritence );
+            System.out.println(all);
+             System.out.println(IndirectInheritence);
         } catch (Exception ex) {
-            Logger.getLogger(HomePageUI.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex);
         }
-
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-        if (userInputTxtBox.getText().isEmpty()) {
-            showMessageDialog(null, "Please add your code here");
-
-        } else {
-            ArrayList<ClassInfo> result = new ArrayList<ClassInfo>();
-
-            if (selectProgrammingLangDropDownBox.getSelectedItem().toString() == "C++") {
-                String UserInputText = userInputTxtBox.getText().toString();
-                String[] classStructureList = UserInputText.split("class");
-
-                int i;
-                for (i = 0; i < classStructureList.length; i++) {
-                    if (!classStructureList[i].isEmpty()) {
-
-                        String firstPart = classStructureList[i].split("\\{")[0];
-                        String className = firstPart.split(":")[0];
-                        String inheritedClassesText = firstPart.split(":")[1];
-                        String[] inheritedClassesList = inheritedClassesText.split(",");
-
-                        result.add(new ClassInfo(className, inheritedClassesList.length, 0, inheritedClassesList.length));
-
-                        System.out.println("Output =>    " + className);
-                    } else {
-                        System.out.println("Output =>    Empty");
-                    }
+     public void printFunction(String agrWord[]) {
+        String sentence = "";
+        for ( int i = 0 ; i < agrWord.length ; i++) {
+           
+            if(agrWord[i].equals("class") || agrWord[i].equals("Class")  ) {
+               classes.add(agrWord[i+1]);
+                for ( int j = 0 ; j < agrWord.length ; j++) {
+                          sentence =  sentence + " " + agrWord[j];
+                     }
+                     all.add(sentence);
+                if(agrWord[i+2].equals("extends") ) {      
+                    //directInheritence.add(String.valueOf((Integer.parseInt( directInheritence.get(countIndex) ) + 1)) );
+                    directInheritence.add(1);
+                    
+                     
                 }
-            } else {
-                String UserInputText = userInputTxtBox.getText().toString();
-                String[] classStructureList = UserInputText.split("class");
-
-                int i;
-                for (i = 0; i < classStructureList.length; i++) {
-                    if (!classStructureList[i].isEmpty()) {
-
-                        String firstPart = classStructureList[i].split("\\{")[0];
-                        String className = firstPart.split("extends")[0];
-                        String inheritedClassesText = firstPart.split("extends")[1];
-                        String[] inheritedClassesList = inheritedClassesText.split(",");
-
-                        result.add(new ClassInfo(className, inheritedClassesList.length, 0, inheritedClassesList.length));
-
-                        System.out.println("Output =>    " + className);
-                    } else {
-                        System.out.println("Output =>    Empty");
-                    }
+                else {
+                     directInheritence.add(0);
                 }
+               
+                countIndex++;
+                
             }
-
-            InheritanceResultScreen nextScreen = new InheritanceResultScreen(result);
-            nextScreen.setVisible(true);
-
-            this.dispose();//to close the current jframe            
-        }
-
+       		
+	}
+   
+   
+   }
+   
+   public void fillArray(int i) {
+       for(int x = 0 ; x < i ; x++){
+           IndirectInheritence.add(0);
+       }
+   }
+   
+   int counter = 0;
+   
+ 
+   
+   int count3 = 0;
+   public void getAmount(String s) {
+      
+       for(int a  = 0 ; a < all.size() ; a++){
+            String[] words2 = all.get(a).split(" " ) ; 
+             for(int b  = 0 ; b < words2.length ; b++){
+                 if(words2[b].equals("class") || words2[b].equals("Class")) {
+                       if(words2[b+1].equals(s)) {
+                           
+                           
+                            if(words2[b+2].equals("extends")) {
+                                
+                                IndirectInheritence.set(count3 , 
+                                     IndirectInheritence.get(count3) + 1
+                                );
+                                getAmount(words2[b+3]);
+                            }else {
+                                count3++;
+                            }
+                            
+                       }
+                 }
+             }
+       }
+       
+      
+       
+       
+   }
+   
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        InheritanceResultScreen resultScreen = new InheritanceResultScreen(0 , 1 , 2 , 3 , 4 ,classes , directInheritence , IndirectInheritence );
+        resultScreen.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
