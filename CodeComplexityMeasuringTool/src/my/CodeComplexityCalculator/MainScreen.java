@@ -116,6 +116,11 @@ public class MainScreen extends javax.swing.JFrame {
         jButton6.setText("Methods");
 
         jButton7.setText("Control Structures");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setText("Coupling");
 
@@ -351,6 +356,12 @@ public class MainScreen extends javax.swing.JFrame {
     private void selectProgrammingLangDropDownBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectProgrammingLangDropDownBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_selectProgrammingLangDropDownBoxActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // control structure
+        ControlStructureNew csn = new ControlStructureNew();
+        csn.setVisible(true);
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
