@@ -5,11 +5,13 @@
  */
 package my.CodeComplexityCalculator;
 
+import java.awt.print.PrinterException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.MessageFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -17,6 +19,7 @@ import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -30,6 +33,7 @@ public class ControlStructures extends javax.swing.JFrame {
      */
     public ControlStructures() {
         initComponents();
+        
     }
 
     ControlStructureWeights cs = new ControlStructureWeights();
@@ -227,6 +231,11 @@ public class ControlStructures extends javax.swing.JFrame {
 
         jButton12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton12.setText("Print Table");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -458,7 +467,6 @@ public class ControlStructures extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
 // Load table data
-
         String fullCode6 = jTextArea1.getText();
 
         if (fullCode6.isEmpty()) {
@@ -549,6 +557,7 @@ public class ControlStructures extends javax.swing.JFrame {
                 DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
                 model.addRow(row);
+                //model.addRow(new Object[] {count});
             }
 
         }        // TODO add your handling code here:
@@ -700,6 +709,19 @@ public class ControlStructures extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Css : " + count);
         }
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+ // print table
+
+        MessageFormat header = new MessageFormat("Code Complexity Measuring Tool Due to Type of Control Structures");
+        MessageFormat footer = new MessageFormat("CCC");
+
+        try {
+            jTable1.print(JTable.PrintMode.FIT_WIDTH, header, footer);
+        } catch (PrinterException e) {
+            JOptionPane.showMessageDialog(null, "Cannot be Printed !" + e.getMessage());
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ActionPerformed
 
     /**
      * @param args the command line arguments
