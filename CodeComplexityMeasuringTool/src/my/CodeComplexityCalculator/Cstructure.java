@@ -525,7 +525,7 @@ public class Cstructure extends javax.swing.JFrame {
                             NCcspps = Ccs;
                         }
                     }
-                    char arrayy[] = new char[16];
+                    /*char arrayy[] = new char[16];
                     a.getChars(0, 3, arrayy, 0);
                      if ((arrayy[0] == 'f') && (arrayy[1] == '0') && (arrayy[2] == 'r')) {
                         no = forStatement(a);
@@ -538,7 +538,7 @@ public class Cstructure extends javax.swing.JFrame {
                         }
                           
                         
-                    }
+                    }*/
                     
                 } else {
                     wtcs = 0;
