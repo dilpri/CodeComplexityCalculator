@@ -71,6 +71,11 @@ public class MainScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         selectProgrammingLangDropDownBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Java", "C++" }));
+        selectProgrammingLangDropDownBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectProgrammingLangDropDownBoxActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Select Programming Language");
 
@@ -121,6 +126,11 @@ public class MainScreen extends javax.swing.JFrame {
         });
 
         jButton7.setText("Control Structures");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setText("Coupling");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -372,6 +382,15 @@ public class MainScreen extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
+    private void selectProgrammingLangDropDownBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectProgrammingLangDropDownBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectProgrammingLangDropDownBoxActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // control structure
+        ControlStructureNew csn = new ControlStructureNew();
+        csn.setVisible(true);
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments

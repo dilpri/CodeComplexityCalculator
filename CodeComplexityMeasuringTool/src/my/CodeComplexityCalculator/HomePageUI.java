@@ -121,7 +121,7 @@ public class HomePageUI extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {}
             },
             new String [] {
 
@@ -288,7 +288,7 @@ public class HomePageUI extends javax.swing.JFrame {
        // path.setText(filename);
     
         //String filePath = "C:\\Users\\Oshadee\\Desktop\\table.txt";
-       String filePath = "C:\\Users\\Imali\\Desktop\\table2.txt";
+       String filePath = "C:\\Users\\Oshadee\\Desktop\\table2.txt";
        File file = new File(filePath);
         
         try {
