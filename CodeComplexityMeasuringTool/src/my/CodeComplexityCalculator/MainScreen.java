@@ -369,10 +369,7 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-               // TODO add your handling code here:
-        Coupling coupling = new Coupling();
-        coupling.setVisible(true);
-        this.dispose();
+      
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
