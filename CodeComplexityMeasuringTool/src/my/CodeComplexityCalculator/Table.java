@@ -5,6 +5,16 @@
  */
 package my.CodeComplexityCalculator;
 
+import com.lowagie.text.Document;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -131,7 +141,58 @@ public class Table extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // Generate PDF
+        String path = "";
+        JFileChooser j = new JFileChooser();
+        j.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int x = j.showSaveDialog(this);
+        
+        if(x==JFileChooser.APPROVE_OPTION){
+        path = j.getSelectedFile().getPath();
+        }
+        
+        Document doc = new Document();
+        
+        try {
+            PdfWriter.getInstance(doc, new FileOutputStream(path+"Complexity due to Control Structures.pdf"));
+            
+            doc.open();
+            
+            PdfPTable tbl = new PdfPTable(5);
+            
+            tbl.addCell("Program Statement");
+            tbl.addCell("Wtcs");
+            tbl.addCell("NC");
+            tbl.addCell("Ccspps");
+            tbl.addCell("Ccs");
+            
+            for (int i = 0; i < table1.getRowCount(); i++) {
+                String ps = table1.getValueAt(i, 0).toString();
+                String wtcs = table1.getValueAt(i, 1).toString();
+                String nc = table1.getValueAt(i, 2).toString();
+                String ccspps = table1.getValueAt(i, 3).toString();
+                String ccs = table1.getValueAt(i, 4).toString();
+                
+                tbl.addCell(ps);
+                tbl.addCell(wtcs);
+                tbl.addCell(nc);
+                tbl.addCell(ccspps);
+                tbl.addCell(ccs);
+                
+            }
+            
+            doc.add(tbl);
+            
+            JOptionPane.showMessageDialog(null, "Downloaded PDF File", "ALERT MESSAGE", JOptionPane.WARNING_MESSAGE);
+            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            Logger.getLogger(Table.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        doc.close();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
