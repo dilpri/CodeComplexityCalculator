@@ -359,7 +359,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // control structure
-        ControlStructureNew csn = new ControlStructureNew();
+        Cstructure csn = new Cstructure();
         csn.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
