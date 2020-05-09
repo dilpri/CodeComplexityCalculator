@@ -171,14 +171,15 @@ public class VariableComplexity extends javax.swing.JFrame {
 
     private void importCode(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importCode
         // TODO add your handling code here:
-         DiliniParser.init(txtV1.getText());
-        Cv[] s= DiliniParser.cvHashMap.values().toArray(new Cv[0]);
+         Parser.init(txtV1.getText());
+          txtV2.setText(Parser.sourceStr);
+        Cv[] s= Parser.cvHashMap.values().toArray(new Cv[0]);
                 DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
 
         for(int i =0; i<s.length; i++) {
             
             String[] row= {//String.valueOf(s[i]),
-                         DiliniParser.lines.get(i),
+                         Parser.lines.get(i),
                          String.valueOf(s[i].getWvs()),
                          String.valueOf(s[i].getNpdtv()),
                          String.valueOf(s[i].getWpdtv()),

@@ -165,6 +165,9 @@ public class CsW extends javax.swing.JFrame {
 
     private void swb2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swb2ActionPerformed
         // TODO add your handling code here:
+         SizeComplexity s=new SizeComplexity();
+        s.setVisible(true);
+        this.dispose();
         
     }//GEN-LAST:event_swb2ActionPerformed
 

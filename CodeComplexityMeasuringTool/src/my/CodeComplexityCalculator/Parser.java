@@ -38,7 +38,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class DiliniParser {
+public class Parser {
 
     static HashMap<Integer, Cs> csHashMap = new HashMap<>();
     static HashMap<Integer, Cv> cvHashMap = new HashMap<>();
@@ -46,6 +46,7 @@ public class DiliniParser {
     static int lineCount = 0;
    
     static List<String> lines = new ArrayList();
+    public static String sourceStr;
     public static void init(String source) {
 
         StringBuilder contentBuilder = new StringBuilder();
@@ -65,7 +66,8 @@ public class DiliniParser {
             e.printStackTrace();
         }
 
-        parse(contentBuilder.toString());
+        sourceStr = contentBuilder.toString();
+        parse(sourceStr);
         csHashMap.forEach((integer, cs) -> {
             System.out.println(cs);
         });
@@ -81,7 +83,7 @@ public class DiliniParser {
         JavaParser parser = new JavaParser();
         ParseResult<CompilationUnit> compilationUnitParseResult = parser.parse(source);
         CompilationUnit compilationUnit = compilationUnitParseResult.getResult().orElse(null);
-        compilationUnit.getChildNodes().forEach(DiliniParser::visit);
+        compilationUnit.getChildNodes().forEach(Parser::visit);
 
     }
 
@@ -130,7 +132,7 @@ public class DiliniParser {
         } else if (node instanceof BinaryExpr) {
             addNOp(node);
         } else if (node instanceof FieldAccessExpr) {
-            node.getChildNodes().forEach(DiliniParser::addNOp);
+            node.getChildNodes().forEach(Parser::addNOp);
         } else if (node instanceof VariableDeclarationExpr) {
             addNOp(node);
         } else if (node instanceof IntegerLiteralExpr) {
@@ -149,7 +151,7 @@ public class DiliniParser {
                 addWmrt(node);
             }
         }
-        node.getChildNodes().forEach(DiliniParser::visit);
+        node.getChildNodes().forEach(Parser::visit);
 
     }
 

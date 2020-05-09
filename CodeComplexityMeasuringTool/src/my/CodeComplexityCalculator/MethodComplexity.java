@@ -155,13 +155,14 @@ public class MethodComplexity extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void importCodet(java.awt.event.ActionEvent evt) {                             
-        DiliniParser.init(txtM1.getText());
-        Cm[] s = DiliniParser.cmHashMap.values().toArray(new Cm[0]);
+        Parser.init(txtM1.getText());
+        txtM2.setText(Parser.sourceStr);
+        Cm[] s = Parser.cmHashMap.values().toArray(new Cm[0]);
                 DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
 
         for(int i =0; i<s.length; i++) {
             String[] row = {//String.valueOf(s[i]),
-                         DiliniParser.lines.get(i),
+                         Parser.lines.get(i),
                         String.valueOf(s[i].getWmrt()),
                         String.valueOf(s[i].getNpdtp()),
                         String.valueOf(s[i].getwpdtp()),

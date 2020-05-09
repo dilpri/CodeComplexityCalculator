@@ -65,6 +65,11 @@ public class SizeComplexity extends javax.swing.JFrame {
         btnS2.setText("Clear");
 
         jButton1.setText("Change the Weight");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -166,14 +171,15 @@ public class SizeComplexity extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void importCode(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importCode
-        DiliniParser.init(txtS1.getText());
-        Cs[] s = DiliniParser.csHashMap.values().toArray(new Cs[0]);
+        Parser.init(txtS1.getText());
+        txtS2.setText(Parser.sourceStr);
+        Cs[] s = Parser.csHashMap.values().toArray(new Cs[0]);
                 DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
 
         for(int i =0; i<s.length; i++) {
             String[] row = {//String.valueOf(s.length),
-                        DiliniParser.lines.get(i),
-                        String.valueOf(s[i].getnKW()),
+                        Parser.lines.get(i),
+                        String.valueOf(s[i].getnKW() ),
                         String.valueOf(s[i].getwKW()),
                         String.valueOf(s[i].getnId()),
                          String.valueOf(s[i].getwId()),
@@ -200,6 +206,13 @@ public class SizeComplexity extends javax.swing.JFrame {
        String filename = file1.getAbsolutePath();
        txtS1.setText(filename);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        CsW sw=new CsW();
+        sw.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
