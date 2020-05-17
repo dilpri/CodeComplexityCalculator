@@ -1,5 +1,8 @@
 package my.CodeComplexityCalculator;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -22,9 +25,17 @@ public class Cs {
     private int nSl = 0;
     private int wSl = 0;
     private int Cs = 0;
+    Object f;
     
-    public Cs() {
+    
+    //public Cs(int wes1) {
+    // this.wKW=wes1;
+    //}
+    
+      public int Cs() {
+      return Cs;
     }
+
 
     public int getnKW() {
         return nKW;
@@ -35,8 +46,10 @@ public class Cs {
     }
     
      public int getwKW() {
-        wKW=nKW*1;
-        return wKW;
+      // SizeComplexity obj=new SizeComplexity();
+       // int s1=obj.Cs();
+          wKW=nKW *1;
+          return wKW;
     }
 
     public void setwKW(int wKW) {
@@ -112,8 +125,8 @@ public class Cs {
         this.wSl = wSl;
     }
     
-    public int getCs() {
-        Cs=wSl+wNv+wOp+wKW+wId;
+   public int getCs() {
+        Cs=1;
         return Cs;
     }
 
@@ -135,6 +148,12 @@ public class Cs {
                 ", wSl=" + wSl +
                 ", Cs=" + Cs;
     }
+
+   
+   
+    
+
+    
 
     
 }
