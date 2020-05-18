@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Asus
+ * @author DELL
  */
 public class Cstructure extends javax.swing.JFrame {
 
@@ -428,6 +428,7 @@ public class Cstructure extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //get the code into text area and counting the number of lines
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader(fileName1.getText()));
@@ -552,7 +553,8 @@ public class Cstructure extends javax.swing.JFrame {
                         
                     }*/
                     
-                } else {
+                } 
+                else {
                     wtcs = 0;
                     no = 0;
                     Ccs = (wtcs * no) + Ccspps;
@@ -580,8 +582,8 @@ public class Cstructure extends javax.swing.JFrame {
     }//GEN-LAST:event_check3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-// Import a file
-         JFileChooser chooser = new JFileChooser();
+        // Import a file
+        JFileChooser chooser = new JFileChooser();
         chooser.showOpenDialog(null);
         File file = chooser.getSelectedFile();
         String filename = file.getAbsolutePath();
