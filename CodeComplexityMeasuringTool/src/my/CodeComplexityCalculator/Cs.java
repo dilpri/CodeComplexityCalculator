@@ -25,12 +25,9 @@ public class Cs {
     private int nSl = 0;
     private int wSl = 0;
     private int Cs = 0;
-    Object f;
+   
     
-    
-    //public Cs(int wes1) {
-    // this.wKW=wes1;
-    //}
+  
     
       public int Cs() {
       return Cs;
@@ -46,8 +43,7 @@ public class Cs {
     }
     
      public int getwKW() {
-      // SizeComplexity obj=new SizeComplexity();
-       // int s1=obj.Cs();
+      
           wKW=nKW *1;
           return wKW;
     }

@@ -55,6 +55,7 @@ public class VariableComplexity extends javax.swing.JFrame {
         swtx1 = new javax.swing.JTextField();
         swtx3 = new javax.swing.JTextField();
         swtx2 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Code Complexity Calculator");
@@ -69,7 +70,7 @@ public class VariableComplexity extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Statement", "Wvs ", "Wpdtv ", "Npdtv ", "Wcdtv ", "Ncdtv ", "Cv"
+                "Statement", "Wvs ", "Npdtv ", "Wpdtv ", "Ncdtv ", "Wcdtv ", "Cv"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -78,6 +79,7 @@ public class VariableComplexity extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(0).setMaxWidth(200);
         }
 
+        btnV1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnV1.setText("Code Complexity");
         btnV1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,6 +149,14 @@ public class VariableComplexity extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setText("Generate Report");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -198,7 +208,10 @@ public class VariableComplexity extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(55, 55, 55)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnV1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnV1)
+                                        .addGap(67, 67, 67)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(swlb1)))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -246,7 +259,9 @@ public class VariableComplexity extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
-                                .addComponent(btnV1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnV1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(swtx3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -275,7 +290,7 @@ public class VariableComplexity extends javax.swing.JFrame {
                          String.valueOf(s[i].getWpdtv()* Integer.parseInt(swtx3.getText())),
                          String.valueOf(s[i].getNcdtv()),
                          String.valueOf(s[i].getWcdtv()* Integer.parseInt(swtx4.getText())),
-                         String.valueOf(s[i].getWvs()*(((s[i].getNpdtv())*s[i].getWpdtv()* Integer.parseInt(swtx3.getText()))+((s[i].getNcdtv())*s[i].getWcdtv()* Integer.parseInt(swtx4.getText()))))         
+                         String.valueOf((s[i].getWvs())*((s[i].getWpdtv()* Integer.parseInt(swtx3.getText()))+(s[i].getWcdtv()* Integer.parseInt(swtx4.getText()))))         
                         };
             model.addRow(row);
         }
@@ -310,6 +325,10 @@ public class VariableComplexity extends javax.swing.JFrame {
     private void swtx2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swtx2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_swtx2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     
     
@@ -374,6 +393,7 @@ public class VariableComplexity extends javax.swing.JFrame {
     private javax.swing.JButton btnV1;
     private javax.swing.JButton btnV2;
     private javax.swing.JButton btnV3;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

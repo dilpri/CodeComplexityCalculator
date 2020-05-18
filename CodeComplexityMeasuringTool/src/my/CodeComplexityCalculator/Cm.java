@@ -68,7 +68,7 @@ public class Cm {
     }
     
      public int getCm() {
-        Cm=wmrt+(wpdtp+wcdtp);
+        Cm=1;
         return Cm;
     }
 

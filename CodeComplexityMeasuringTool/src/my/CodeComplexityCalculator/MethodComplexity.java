@@ -58,6 +58,7 @@ public class MethodComplexity extends javax.swing.JFrame {
         swtx1 = new javax.swing.JTextField();
         swtx3 = new javax.swing.JTextField();
         swtx2 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Code Complexity Calculator");
@@ -89,6 +90,7 @@ public class MethodComplexity extends javax.swing.JFrame {
         txtM2.setRows(5);
         jScrollPane3.setViewportView(txtM2);
 
+        btnM1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnM1.setText("Code Complexity");
         btnM1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +108,7 @@ public class MethodComplexity extends javax.swing.JFrame {
         });
 
         swlb1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        swlb1.setText("Weights related to the size factor");
+        swlb1.setText("Weights related to the method factor");
 
         swtx5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +161,14 @@ public class MethodComplexity extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setText("Generate Report");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -177,9 +187,9 @@ public class MethodComplexity extends javax.swing.JFrame {
                                 .addComponent(btnM3, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnM2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                                .addComponent(swlb1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(106, 106, 106))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(swlb1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 215, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,11 +216,13 @@ public class MethodComplexity extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(97, 97, 97)
-                                .addComponent(btnM1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnM1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 613, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(164, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,7 +274,9 @@ public class MethodComplexity extends javax.swing.JFrame {
                             .addComponent(swtx5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnM1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnM1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(64, 64, 64))))
         );
 
@@ -272,21 +286,29 @@ public class MethodComplexity extends javax.swing.JFrame {
     private void importCodet(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importCodet
         Parser.init(txtM1.getText());
         
-        //txtM1.setText(Parser.sourceStr);
+        txtM1.setText(Parser.sourceStr);
         Cm[] s =Parser.cmHashMap.values().toArray(new Cm[0]);
                 DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
 
         for(int i =0; i<s.length; i++) {
             String[] row = {//String.valueOf(s[i]),
-                        Parser.lines.get(i),
+                         Parser.lines.get(i),
                         String.valueOf(s[i].getWmrt()*Integer.parseInt(swtx3.getText())),
                         String.valueOf(s[i].getNpdtp()),
                         String.valueOf(s[i].getwpdtp()*Integer.parseInt(swtx1.getText())),
                         String.valueOf(s[i].getNcdtp()),
                         String.valueOf(s[i].getWcdtp()*Integer.parseInt(swtx2.getText())),
                         String.valueOf((s[i].getWmrt()*Integer.parseInt(swtx3.getText()))+
+                                (s[i].getwpdtp()*Integer.parseInt(swtx1.getText()))+
+                                  s[i].getWcdtp()*Integer.parseInt(swtx2.getText()))
+                        /*String.valueOf(s[i].getWmrt()*Integer.parseInt(swtx3.getText())),
+                        String.valueOf(s[i].getNpdtp()),
+                        String.valueOf(s[i].getwpdtp()*Integer.parseInt(swtx1.getText())),
+                        String.valueOf(s[i].getNcdtp()),
+                        String.valueOf(s[i].getWcdtp()*Integer.parseInt(swtx2.getText())),
+                        String.valueOf((s[i].getWmrt()*Integer.parseInt(swtx3.getText()))+
                                 (s[i].getNpdtp()*(s[i].getwpdtp()*Integer.parseInt(swtx1.getText())))+
-                                  s[i].getNcdtp()*(s[i].getWcdtp()*Integer.parseInt(swtx2.getText())))
+                                  s[i].getNcdtp()*(s[i].getWcdtp()*Integer.parseInt(swtx2.getText())))*/
                       
                         };
             model.addRow(row);
@@ -325,6 +347,10 @@ public class MethodComplexity extends javax.swing.JFrame {
     private void swtx2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swtx2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_swtx2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,6 +392,7 @@ public class MethodComplexity extends javax.swing.JFrame {
     private javax.swing.JButton btnM1;
     private javax.swing.JButton btnM2;
     private javax.swing.JButton btnM3;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
