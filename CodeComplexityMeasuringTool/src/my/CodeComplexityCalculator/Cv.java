@@ -39,7 +39,7 @@ public class Cv {
     }
     
      public int getWpdtv() {
-         wpdtv=npdtv*10;
+         wpdtv=npdtv*1;
          return wpdtv;
     }
 
@@ -57,7 +57,7 @@ public class Cv {
     }
     
      public int getWcdtv() {
-         wcdtv=ncdtv*2;
+         wcdtv=ncdtv*1;
          return wcdtv;
     }
 
@@ -68,7 +68,7 @@ public class Cv {
 
     
      public int getCv() {
-        Cv=wvs*(wpdtv+wcdtv);
+        Cv=1;
         return Cv;
     }
 
