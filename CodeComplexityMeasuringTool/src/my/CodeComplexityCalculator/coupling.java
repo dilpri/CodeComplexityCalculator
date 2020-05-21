@@ -9,7 +9,15 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Oshadee
@@ -23,6 +31,7 @@ public class coupling extends javax.swing.JFrame {
      */
     public coupling() {
         initComponents();
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(300);
     }
 
     /**
@@ -34,23 +43,23 @@ public class coupling extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        l1 = new javax.swing.JTextArea();
         jButton4 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton5 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        count1 = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jButton1.setText("Import");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setText("Complexity of a Program Statement due to Coupling");
@@ -63,70 +72,428 @@ public class coupling extends javax.swing.JFrame {
         });
 
         jButton3.setText("Reset");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        l1.setColumns(20);
+        l1.setRows(5);
+        jScrollPane1.setViewportView(l1);
 
-        jButton4.setText("Calculate");
+        jButton4.setText("Calculate Complexity");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Program Statement", "Nr", "Nmcms", "Nmcmd", "Nmcrms", "Nmcrmd", "Nrmcrms", "Nrmcrmd", "Nrmcms", "Nrmcmd", "Nmrgvs", "Nmrgvd", "Nrmrgvs", "Nrmrgvd", "Ccp"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jButton5.setText("Import");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        count1.setColumns(20);
+        count1.setRows(5);
+        jScrollPane3.setViewportView(count1);
+
+        jLabel2.setText("      Number of Lines");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setText("Choose a .java or .cpp file");
+
+        jButton1.setText("Generate PDF");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(183, 183, 183))
+                .addContainerGap(303, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(220, 220, 220))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)
-                        .addGap(28, 28, 28)
-                        .addComponent(jButton2)
-                        .addGap(33, 33, 33)
-                        .addComponent(jButton3)
-                        .addGap(36, 36, 36)
-                        .addComponent(jButton4))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(115, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+                                    .addComponent(jTextField1))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(254, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // Import a file
-         JFileChooser chooser = new JFileChooser();
-        chooser.showOpenDialog(null);
-        File file = chooser.getSelectedFile();
-        String filename = file.getAbsolutePath();
-       // fileName2.setText();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+      public static int a = 1;
+      public static int b = 2;
+      public static int c = 2;
+      public static int d = 4;
+      public static int e = 3;
+      public static int f = 1;
+    
+    public static File file1;
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //get the code into text area and counting the number of lines
+         
+            //String codeFirst1 = l1.replaceAll("\".*\"", ""); //remove double quotes from the code
+            //l1.setText(fullCode.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", "")); //remove all single and multiple comments
+        BufferedReader br = null;
+       
+        try {
+            br = new BufferedReader(new FileReader(file1.getAbsoluteFile()));
+            String line;
+            int count = 0;
+
+            while ((line = br.readLine()) != null) {
+                //  String[] newString = line.split("\\s+");
+                //    for(String read: newString){
+
+                count++;
+                l1.append(line + "\n");
+
+                //  }
+            }
+            count1.setText(Integer.toString(count));
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+
+                br.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        
+        String fullCode = l1.getText();
+         
+        if (fullCode.isEmpty()) {
+
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
+        } 
+        else {
+            //String codeFirst1 = l1.replaceAll("\".*\"", ""); //remove double quotes from the code
+            //l1.setText(fullCode.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", "")); //remove all single and multiple comments
+        BufferedReader br = null;
+        
+        //A recursive call
+         try {
+            real.recursion();
+            // TODO add your handling code here:
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        //A regular method calling another regular method in the same file
+        try {
+            // TODO add your handling code here:
+            regularCallingRegular.collectMethods();
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            regularCallingRegular.storeReRegMethods();
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         try {
+            regularCallingRegular.searchForMethods();
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         try {
+            codeLines.readLines();
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         //A regular method calling a recursive method in the same file
+         try {
+            
+            regularCallingRecursive.collectMethods1();
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            regularCallingRecursive.storeReRegMethods1();
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            regularCallingRecursive.searchForMethods1();
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //A recursive method calling another recursive method in the same file
+         try {
+            
+            recursiveCallingRecursive.collectRecursiveMethods();
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            recursiveCallingRecursive.searchForRecursiveInSameFile();
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        // A recursive method calling a regular method in the same file
+         try {
+            recursiveCallingRegular.collectMethods();
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            recursiveCallingRegular.storeReRegMethods();
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         try {
+            recursiveCallingRegular.recursion();
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         //A regular method referencing a global variable in the same file
+         try {
+            regularCallingGlobal.collectGloabalVaribales();
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            regularCallingGlobal.collectMethods();
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         try {
+            regularCallingGlobal.storeReRegMethods();
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         try {
+            regularCallingGlobal.searchForMethods();
+        } catch (IOException ex) {
+            Logger.getLogger(coupling.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+         
+         
+         
+         
+        
+        ArrayList<Integer> countList;
+        countList = regularCallingRegular.countList;
+        
+        ArrayList<Integer> countList1;
+        countList1 = real.countList1;
+        
+        ArrayList<Integer> countList2;
+        countList2 = regularCallingRecursive.countList2;
+        
+         ArrayList<Integer> countList3;
+        countList3 = recursiveCallingRecursive.countList3;
+        
+        ArrayList<Integer> countList4;
+        countList4 = recursiveCallingRegular.countList4;
+        
+        ArrayList<Integer> countList5;
+        countList5 = regularCallingGlobal.countList5;
+        
+        
+        
+         ArrayList<String> linesList;
+        linesList = codeLines.linesList;
+        
+                
+       
+        
+        
+     
+        
+        
+         
+        
+        
+        DefaultTableModel dtm = (DefaultTableModel)jTable1.getModel();
+        
+        Object rowData[] = new Object[15];
+        
+        for( int i = 0; i < linesList.size(); i++){
+            rowData[0] = linesList.get(i);
+            rowData[1] = countList1.get(i);
+            rowData[2] = countList.get(i);
+            rowData[4] = countList2.get(i);
+            rowData[6] = countList3.get(i);
+            rowData[8] = countList4.get(i);
+            rowData[10] = countList5.get(i);
+            rowData[14] = (countList1.get(i)*a + countList.get(i)*b + countList2.get(i)*c + countList3.get(i)*d + countList4.get(i)*e + countList5.get(i)*f);
+           
+            dtm.addRow(rowData);
+        }
+        
+       // for( int j = 0; j < countList.size(); j++){
+            
+         //   dtm.addRow(rowData);
+        //}
+        
+        Integer count;
+        Integer count10;
+        Integer count11;
+        Integer count12;
+        Integer count13;
+        Integer count14;
+        
+        count = real.count;
+        count10 = regularCallingRegular.count10;
+        count11 = regularCallingRecursive.count11;
+        count12 = recursiveCallingRecursive.count12;
+        count13 = recursiveCallingRegular.count13;
+        count14 = regularCallingGlobal.count14;
+        
         
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+        }    
+       
+
+        
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        
+         JFileChooser chooser = new JFileChooser();
+       chooser.showOpenDialog(null);
+       file1 = chooser.getSelectedFile();
+       String filename = file1.getAbsolutePath();
+       jTextField1.setText(filename);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        /*   file1.canExecute("");*/
+        l1.setText("");  
+        count1.setText("");
+        jTextField1.setText("");
+      //  jTable1.setModel();
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        MessageFormat header = new MessageFormat("Generate PDF");
+         MessageFormat footer = new MessageFormat("Page{0,number,integer}");
+         
+          String fullCode = l1.getText();
+         
+        if (fullCode.isEmpty()) {
+
+            JFrame f = new JFrame();
+            JOptionPane.showMessageDialog(f, "You should import a Text File for the text area !");
+        } 
+        else {
+            //String codeFirst1 = l1.replaceAll("\".*\"", ""); //remove double quotes from the code
+            //l1.setText(fullCode.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", "")); //remove all single and multiple comments
+        BufferedReader br = null;
+         try {
+            jTable1.print(JTable.PrintMode.NORMAL, header, footer);
+        } catch (java.awt.print.PrinterException e) {
+             System.err.format("Cannnot print %s%n",e.getMessage());
+        }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -164,13 +531,20 @@ public class coupling extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea count1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea l1;
     // End of variables declaration//GEN-END:variables
 }
