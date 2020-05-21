@@ -270,11 +270,18 @@ public class Cstructure extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("case");
 
+        jTextField2.setText("2");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
+
+        jTextField1.setText("3");
+
+        jTextField3.setText("2");
+
+        jTextField4.setText("1");
 
         jButton4.setBackground(new java.awt.Color(255, 255, 0));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
