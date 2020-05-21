@@ -117,6 +117,11 @@ public class MainScreen extends javax.swing.JFrame {
         jLabel3.setText("Complexity of a program due to:");
 
         jButton5.setText("Variables");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Methods");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -369,15 +374,20 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-      
+      coupling cp = new coupling();
+        cp.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        SizeComplexity s = new SizeComplexity();
+        s.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        MethodComplexity m = new MethodComplexity();
+        m.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
     private void selectProgrammingLangDropDownBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectProgrammingLangDropDownBoxActionPerformed
         // TODO add your handling code here:
@@ -388,6 +398,12 @@ public class MainScreen extends javax.swing.JFrame {
         Cstructure csn = new Cstructure();
         csn.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+         VariableComplexity v = new VariableComplexity();
+         v.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
