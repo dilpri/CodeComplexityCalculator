@@ -43,21 +43,24 @@ public class Cstructure extends javax.swing.JFrame {
         return Nc;
     }
     
-    /*public int ifStatementwithop(String a) {
-
+    public int forStatement(String a){
+        
         int Nc = 0;
+        
         char array[] = new char[16];
-        a.getChars(0, 2, array, 0);
-        if ((array[0] == 'i') && (array[1] == 'f') && (array[2] == '&') && (array[3] == '&'))  {
-            Nc = 2;
-
+        a.getChars(0, 3, array, 0);
+        if((array[0] == 'f') && (array[1] == 'o') && (array[2] == 'r')) {
+            
+            Nc = 1;
         }
-        return Nc;
-    }*/
+       return Nc;
+    }
 
     public int elseifStatement(String a) {
 
         int Nc = 0;
+        int wtcs = 0;
+        int Ccspps = 0;
         char array[] = new char[16];
         a.getChars(0, 6, array, 0);
         if ((array[0] == 'e') && (array[1] == 'l') && (array[2] == 's') && (array[3] == 'e') && (array[4] == 'i') && (array[5] == 'f')) {
@@ -65,46 +68,8 @@ public class Cstructure extends javax.swing.JFrame {
             Nc = 2;
 
         }
-        return Nc;
-    }
-    
-    public int forStatement(String a) {
-
-        int Nc = 0;
-        char array[] = new char[16];
-        a.getChars(0, 3, array, 0);
-        if ((array[0] == 'f') && (array[1] == '0') && (array[2] == 'r')) {
-
-            Nc = 1;
-
-        }
-        return Nc;
-    }
-    
-    public int whileStatement(String a) {
-
-        int Nc = 0;
-        char array[] = new char[16];
-        a.getChars(0, 5, array, 0);
-        if ((array[0] == 'w') && (array[1] == 'h') && (array[2] == 'i') && (array[3] == 'l') && (array[4] == 'e')) {
-
-            Nc = 1;
-
-        }
-        return Nc;
-    }
-    
-    public int doStatement(String a) {
-
-        int Nc = 0;
-        char array[] = new char[16];
-        a.getChars(0, 2, array, 0);
-        if ((array[0] == 'd') && (array[1] == '0')) {
-
-            Nc = 1;
-
-        }
-        return Nc;
+            
+         return Nc;
     }
 
     public int endIfStatement(String a) {
@@ -119,7 +84,51 @@ public class Cstructure extends javax.swing.JFrame {
         }
         return Ccspps;
     }
-
+    
+    
+    
+    public int whileStatement(String a){
+       
+        int Nc = 0;
+        
+        char array[] = new char[16];
+        a.getChars(0, 5, array, 0);
+        if((array[0] == 'w') && (array[1] == 'h') && (array[2] == 'i') && (array[3] == 'l') && (array[4] == 'e')) {
+            
+            Nc = 1;
+        }
+        
+        return Nc;
+    }
+    
+    public int doStatement(String a){
+       
+        int Nc = 0;
+        
+        char array[] = new char[16];
+        a.getChars(0, 2, array, 0);
+        if((array[0] == 'd') && (array[1] == 'o') ) {
+            
+            Nc = 1;
+        }
+        
+        return Nc;
+    }
+    /*
+     public int doStatement(String a){
+       
+        int Nc = 0;
+        
+        char array[] = new char[16];
+        a.getChars(0, 2, array, 0);
+        if((array[0] == 'd') && (array[1] == 'o') ) {
+            
+            Nc = 1;
+        }
+        
+        return Nc;
+    }
+    */
     public int switchStatement(String a) {
 
         int Nc = 0;
@@ -145,7 +154,6 @@ public class Cstructure extends javax.swing.JFrame {
         }
         return Nc;
     }
-
     /* public int nomall(String a) {
         int wtcs = 0;
         char array[] = new char[16];
@@ -483,6 +491,10 @@ public class Cstructure extends javax.swing.JFrame {
             Scanner x;
             int NCcspps = 0;
             int fCcspps = 0;
+            int fCcsppss = 0;
+            int fCcsppsss = 0;
+             int fCcsppssss = 0;
+            //int fCcsppssss = 0;
             int linesCal = Integer.parseInt(count1.getText());
             int i = 1;
             new Table().setVisible(true);
@@ -499,13 +511,14 @@ public class Cstructure extends javax.swing.JFrame {
                 char array[] = new char[16];
                 a.getChars(0, 1, array, 0);
 
-                if ((array[0] == 'i') || (array[0] == 's') || (array[0] == 'c') || (array[0] == 'e') || (array[0] == 'f') || (array[0] == 'w') || (array[0] == 'd')) {
+                if ((array[0] == 'i') || (array[0] == 's') || (array[0] == 'c') || (array[0] == 'e') || (array[0] == 'f') || (array[0] == 'o') || (array[0] == 'w') || (array[0] == 'h')|| (array[0] == 'd')) {
 
                     if ((array[0] == 'i') || (array[0] == 'e')) {
                         no = ifStatement(a);
                         if (no > 0) {
-                           String w = jTextField2.getText();
+                            String w = jTextField2.getText();
                             wtcs = Integer.parseInt(w);
+                            //wtcs = 2;
                             Ccs = (wtcs * no) + fCcspps;
                         }
                             fCcspps = Ccs;
@@ -514,8 +527,8 @@ public class Cstructure extends javax.swing.JFrame {
                             }
                         
                     }
-                     
-                    char arrayx[] = new char[16];
+                  
+                   char arrayx[] = new char[16];
                     a.getChars(0, 2, arrayx, 0);
                     if ((arrayx[0] == 'c') && (arrayx[1] == 'a')) {
                         no = caseStatement(a);
@@ -526,6 +539,50 @@ public class Cstructure extends javax.swing.JFrame {
                             Ccspps = NCcspps;
                             Ccs = (wtcs * no) + Ccspps;
                         }
+                    }
+                     if((arrayx[0] == 'f') && (arrayx[1] == 'o')) {
+                        no = forStatement(a);
+                        if (no > 0) {
+                            String w = jTextField1.getText();
+                            wtcs = Integer.parseInt(w);
+                            //wtcs = 3;
+                            Ccs = (wtcs * no) + fCcsppss;
+                            
+                        }
+                            fCcsppss = Ccs;
+                           if ((arrayx[0] == 'o')) {
+                               fCcsppss = forStatement(a);
+                            }
+                        
+                    }
+                     if((arrayx[0] == 'w') && (arrayx[1] == 'h')) {
+                        no = whileStatement(a);
+                        if (no > 0) {
+                            String w = jTextField1.getText();
+                            wtcs = Integer.parseInt(w);
+                            //wtcs = 3;
+                            Ccs = (wtcs * no) + fCcsppsss;
+                            
+                        }
+                            fCcsppsss = Ccs;
+                           if ((arrayx[0] == 'h')) {
+                               fCcsppsss = forStatement(a);
+                            }
+                        
+                    }if((arrayx[0] == 'd') && (arrayx[1] == 'o')) {
+                        no = doStatement(a);
+                        if (no > 0) {
+                            String w = jTextField1.getText();
+                            wtcs = Integer.parseInt(w);
+                            //wtcs = 3;
+                            Ccs = (wtcs * no) + fCcsppssss;
+                            
+                        }
+                            fCcsppssss = Ccs;
+                           if ((arrayx[0] == 'o')) {
+                               fCcsppssss = doStatement(a);
+                            }
+                        
                     }
                     if ((arrayx[0] == 's') && (arrayx[1] == 'w')) {
                         no = switchStatement(a);
@@ -538,23 +595,7 @@ public class Cstructure extends javax.swing.JFrame {
                             NCcspps = Ccs;
                         }
                     }
-                    /*char arrayy[] = new char[16];
-                    a.getChars(0, 3, arrayy, 0);
-                     if ((arrayy[0] == 'f') && (arrayy[1] == '0') && (arrayy[2] == 'r')) {
-                        no = forStatement(a);
-                        if (no > 0) {
-                           String w = jTextField1.getText();
-                            wtcs = Integer.parseInt(w);
-                            Ccspps = 0;
-                            Ccs = (wtcs * no) + Ccspps;
-                            NCcspps = Ccs;
-                        }
-                          
-                        
-                    }*/
-                    
-                } 
-                else {
+                } else {
                     wtcs = 0;
                     no = 0;
                     Ccs = (wtcs * no) + Ccspps;
@@ -563,7 +604,6 @@ public class Cstructure extends javax.swing.JFrame {
                 Table.Obj1(new Object[]{line, wtcs, no, Ccspps, Ccs});
 
                 i++;
-                
             }
 
             //  }
@@ -584,6 +624,7 @@ public class Cstructure extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Import a file
         JFileChooser chooser = new JFileChooser();
+        chooser.setMultiSelectionEnabled(true);
         chooser.showOpenDialog(null);
         File file = chooser.getSelectedFile();
         String filename = file.getAbsolutePath();
