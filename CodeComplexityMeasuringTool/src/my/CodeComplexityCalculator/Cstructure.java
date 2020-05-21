@@ -71,6 +71,7 @@ public class Cstructure extends javax.swing.JFrame {
             
          return Nc;
     }
+    
 
     public int endIfStatement(String a) {
 
