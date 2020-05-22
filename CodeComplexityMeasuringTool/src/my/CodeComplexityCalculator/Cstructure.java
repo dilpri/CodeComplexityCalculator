@@ -200,7 +200,7 @@ public class Cstructure extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("CCC-Code Complexity Calculator");
+        setTitle("Code Complexity Calculator");
         setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -459,7 +459,7 @@ public class Cstructure extends javax.swing.JFrame {
                 line = br.readLine();
                 x = new Scanner(line);
                 // while(x.hasNext()){
-
+                try{
                 String a = x.next();
                 int no = 0;
                 int wtcs = 0;
@@ -559,7 +559,10 @@ public class Cstructure extends javax.swing.JFrame {
                 }
 
                 Table.Obj1(new Object[]{line, wtcs, no, Ccspps, Ccs});
-
+                }catch(Exception e){
+                    Table.Obj1(new Object[]{"",0,0,0,0});
+                    e.printStackTrace();
+                }
                 i++;
             }
 
