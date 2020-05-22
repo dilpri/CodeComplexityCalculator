@@ -44,10 +44,11 @@
                                       <Component id="swtx3" min="-2" pref="50" max="-2" attributes="0"/>
                                       <Component id="swtx4" min="-2" pref="50" max="-2" attributes="0"/>
                                       <Component id="swtx5" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                          <Component id="swtx1" min="-2" pref="50" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                           <Component id="swlb3" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="swtx1" min="-2" pref="50" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -129,17 +130,12 @@
                           <Component id="swlb3" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="swlb2" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="swtx1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="swlb4" min="-2" pref="33" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                          </Group>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="swlb4" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="swtx1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel3" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
                           <Component id="swtx2" min="-2" max="-2" attributes="0"/>
@@ -397,16 +393,25 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="swtx1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="swtx1ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="swtx3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="swtx3ActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="swtx2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="swtx2ActionPerformed"/>
       </Events>
@@ -420,6 +425,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="swtx5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="swtx5ActionPerformed"/>
       </Events>
@@ -433,6 +441,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="swtx4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="1"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="swtx4ActionPerformed"/>
       </Events>

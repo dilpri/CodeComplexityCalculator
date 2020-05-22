@@ -132,6 +132,7 @@ public class VariableComplexity extends javax.swing.JFrame {
         swlb4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         swlb4.setText("Global variable ");
 
+        swtx4.setText("2");
         swtx4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 swtx4ActionPerformed(evt);
@@ -147,18 +148,21 @@ public class VariableComplexity extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Primitive data type variable ");
 
+        swtx1.setText("2");
         swtx1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 swtx1ActionPerformed(evt);
             }
         });
 
+        swtx3.setText("1");
         swtx3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 swtx3ActionPerformed(evt);
             }
         });
 
+        swtx2.setText("1");
         swtx2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 swtx2ActionPerformed(evt);

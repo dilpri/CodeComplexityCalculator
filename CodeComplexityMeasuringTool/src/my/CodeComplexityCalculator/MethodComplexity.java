@@ -126,6 +126,7 @@ public class MethodComplexity extends javax.swing.JFrame {
         swlb1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         swlb1.setText("Weights related to the method factor");
 
+        swtx5.setText("2");
         swtx5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 swtx5ActionPerformed(evt);
@@ -141,6 +142,7 @@ public class MethodComplexity extends javax.swing.JFrame {
         swlb4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         swlb4.setText("Method with a primitive return type");
 
+        swtx4.setText("1");
         swtx4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 swtx4ActionPerformed(evt);
@@ -159,18 +161,21 @@ public class MethodComplexity extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Composite data type parameter");
 
+        swtx1.setText("1");
         swtx1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 swtx1ActionPerformed(evt);
             }
         });
 
+        swtx3.setText("0");
         swtx3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 swtx3ActionPerformed(evt);
             }
         });
 
+        swtx2.setText("2");
         swtx2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 swtx2ActionPerformed(evt);
